@@ -15,10 +15,8 @@ app.use("/api/auth", require("./routes/authRoutes"));
 // User Routes
 app.use("/api/user/task", require("./routes/userTaskRoutes"));
 
-
 // Admin Routes
-
-
+app.use("/api/admin/task", require("./routes/adminTaskRoutes"));
 
 // Error Handler
 app.use(errorHandler);
