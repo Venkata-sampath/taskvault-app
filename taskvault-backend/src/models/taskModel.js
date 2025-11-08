@@ -8,7 +8,8 @@ const taskSchema = mongoose.Schema({
     },
     description: {
         type: String,
-        trim: true
+        trim: true,
+        default: null
     },
     status: {
         type: String,
@@ -21,7 +22,8 @@ const taskSchema = mongoose.Schema({
         default: "medium"
     },
     dueDate: {
-        type: Date
+        type: Date,
+        default: null
     },
     userId: {
         type: mongoose.Schema.Types.ObjectId,
