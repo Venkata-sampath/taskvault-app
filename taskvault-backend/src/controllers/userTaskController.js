@@ -61,7 +61,7 @@ const updateUserTask = asyncHandler(async(req, res) => {
     }
     if(task.assignedBy.toString() != req.user.id){
         res.status(403);
-        throw new Error("Users dont have permission to update tasks assignedBy admins");
+        throw new Error("Users dont have permission to update tasks assignedBy admin");
     }
 
     const updatedTask = await Task.findByIdAndUpdate(
@@ -88,7 +88,7 @@ const deleteUserTask = asyncHandler(async(req, res) => {
     }
     if(task.assignedBy.toString() != req.user.id){
         res.status(403);
-        throw new Error("Users dont have permission to delete tasks assignedBy admins");
+        throw new Error("Users dont have permission to delete tasks assignedBy admin");
     }
     
     await task.deleteOne()
