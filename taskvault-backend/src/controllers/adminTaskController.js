@@ -1,7 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const Task = require("../models/taskModel");
 
-//@desc get all tasks alloted by admin 
+//@desc get all user's tasks
 //@api GET /api/admin/task
 //@access private
 //@role admin
@@ -31,7 +31,7 @@ const createAdminTask = asyncHandler( async(req, res) => {
     res.status(201).json(task);
 });
 
-//@desc get task with id 
+//@desc get user task with id 
 //@api GET /api/admin/task/:id
 //@access private
 //@role admin
@@ -47,7 +47,7 @@ const getAdminTask = asyncHandler( async(req, res) => {
     res.status(200).json(task);
 });
 
-//@desc get all tasks alloted by admin 
+//@desc update user task 
 //@api PUT /api/admin/task/:id
 //@access private
 //@role admin
@@ -66,7 +66,7 @@ const updateAdminTask = asyncHandler( async(req, res) => {
     res.status(200).json(updatedTask);
 });
 
-//@desc get all tasks alloted by admin 
+//@desc delete user task 
 //@api DELETE /api/admin/task/:id
 //@access private
 //@role admin
