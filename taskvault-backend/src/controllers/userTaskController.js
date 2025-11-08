@@ -5,7 +5,9 @@ const Task = require("../models/taskModel");
 //@api GET /api/user/task
 //@access private
 const getUserTasks = asyncHandler(async(req, res) => {
-    const tasks = await Task.find({userId: req.user.id});
+    const tasks = await Task.find({userId: req.user.id})
+    .populate("userId", "username email")
+    .populate("assignedBy", "username email");
     res.status(200).json(tasks);
 }); 
 
