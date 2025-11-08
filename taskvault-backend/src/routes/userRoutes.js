@@ -4,7 +4,8 @@ const {getUserTasks, createUserTask, getUserTask, updateUserTask, deleteUserTask
 const validateToken = require("../middleware/validateTokenHandler");
 
 router.use(validateToken);
-router.route("/").get(getUserTasks).post(createUserTask);
-router.route("/:id").get(getUserTask).put(updateUserTask).delete(deleteUserTask);
+// Task Routes
+router.route("/task").get(getUserTasks).post(createUserTask);
+router.route("/task/:id").get(getUserTask).put(updateUserTask).delete(deleteUserTask);
 
 module.exports = router;
