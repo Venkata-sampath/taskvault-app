@@ -3,6 +3,11 @@ const asyncHandler = require("express-async-handler");
 
 const validateToken = asyncHandler(async (req,res,next) => {
     let token;
+    if(!token){
+        res.status(401);
+        throw new Error("token is missing");
+    }
+    
     const authHeader = req.headers.Authorization || req.headers.authorization;
     if(authHeader && authHeader.startsWith("Bearer")){
         token = authHeader.split(" ")[1];
@@ -15,10 +20,6 @@ const validateToken = asyncHandler(async (req,res,next) => {
                 next();
             }
         });
-        if(!token){
-            res.status(401);
-            throw new Error("token is missing");
-        }
     }
 })
 
