@@ -38,13 +38,16 @@ const getUserTask = asyncHandler(async(req, res) => {
         res.status(404);
         throw new Error("Task not found");
     }
-
-    if(task.userId.toString() != req.user.id){
+    if(task.userId.toString() !== req.user.id){
         res.status(403);
         throw new Error("Users dont have permission to access other user tasks");
     }
 
-    res.status(200).json(task);
+    const populatedtask = await Task.findById(req.params.id)
+    .populate("userId", "username email")
+    .populate("assignedBy", "username email");
+
+    res.status(200).json(populatedtask);
 }); 
 
 //@desc update task
@@ -57,11 +60,11 @@ const updateUserTask = asyncHandler(async(req, res) => {
         throw new Error("Task not found");
     }
 
-    if(task.userId.toString() != req.user.id){
+    if(task.userId.toString() !== req.user.id){
         res.status(403);
         throw new Error("Users dont have permission to update other user tasks");
     }
-    if(task.assignedBy.toString() != req.user.id){
+    if(task.assignedBy.toString() !== req.user.id){
         res.status(403);
         throw new Error("Users dont have permission to update tasks assignedBy admin");
     }
@@ -84,11 +87,11 @@ const deleteUserTask = asyncHandler(async(req, res) => {
         throw new Error("Task not found");
     }
 
-    if(task.userId.toString() != req.user.id){
+    if(task.userId.toString() !== req.user.id){
         res.status(403);
         throw new Error("Users dont have permission to delete other user tasks");
     }
-    if(task.assignedBy.toString() != req.user.id){
+    if(task.assignedBy.toString() !== req.user.id){
         res.status(403);
         throw new Error("Users dont have permission to delete tasks assignedBy admin");
     }
