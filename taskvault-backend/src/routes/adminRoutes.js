@@ -9,8 +9,8 @@ const router = express.Router();
 router.use(validateToken, authorizeRoles("admin"));
 
 // Task Routes
-router.route("/task").get(getAllTasks).post(createAdminTask);
-router.route("/task/:id").get(getAdminTask).put(updateAdminTask).delete(deleteAdminTask);
+router.route("/tasks").get(getAllTasks).post(createAdminTask);
+router.route("/tasks/:id").get(getAdminTask).put(updateAdminTask).delete(deleteAdminTask);
 
 // User Routes
 router.route("/users").get(getAllUsers);

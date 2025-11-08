@@ -3,7 +3,7 @@ const Task = require("../models/taskModel");
 const User = require("../models/userModel");
 
 //@desc get all user's tasks
-//@api GET /api/admin/task
+//@api GET /api/admin/tasks
 //@access private
 //@role admin
 const getAllTasks = asyncHandler( async(req, res) => {
@@ -14,7 +14,7 @@ const getAllTasks = asyncHandler( async(req, res) => {
 }); 
 
 //@desc create task for user
-//@api POST /api/admin/task
+//@api POST /api/admin/tasks
 //@access private
 //@role admin
 const createAdminTask = asyncHandler( async(req, res) => {
@@ -39,7 +39,7 @@ const createAdminTask = asyncHandler( async(req, res) => {
 });
 
 //@desc get user task with id 
-//@api GET /api/admin/task/:id
+//@api GET /api/admin/tasks/:id
 //@access private
 //@role admin
 const getAdminTask = asyncHandler( async(req, res) => {
@@ -55,7 +55,7 @@ const getAdminTask = asyncHandler( async(req, res) => {
 });
 
 //@desc update user task 
-//@api PUT /api/admin/task/:id
+//@api PUT /api/admin/tasks/:id
 //@access private
 //@role admin
 const updateAdminTask = asyncHandler( async(req, res) => {
@@ -74,7 +74,7 @@ const updateAdminTask = asyncHandler( async(req, res) => {
 });
 
 //@desc delete user task 
-//@api DELETE /api/admin/task/:id
+//@api DELETE /api/admin/tasks/:id
 //@access private
 //@role admin
 const deleteAdminTask = asyncHandler( async(req, res) => {

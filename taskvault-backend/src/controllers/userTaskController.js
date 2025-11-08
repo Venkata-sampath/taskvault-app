@@ -2,7 +2,7 @@ const asyncHandler = require("express-async-handler");
 const Task = require("../models/taskModel");
 
 //@desc Get all tasks
-//@api GET /api/user/task
+//@api GET /api/user/tasks
 //@access private
 const getUserTasks = asyncHandler(async(req, res) => {
     const tasks = await Task.find({userId: req.user.id})
@@ -12,7 +12,7 @@ const getUserTasks = asyncHandler(async(req, res) => {
 }); 
 
 //@desc create a task
-//@api POST /api/user/task
+//@api POST /api/user/tasks
 //@access private
 const createUserTask = asyncHandler(async(req, res) => {
     const {title, description, status, priority, dueDate} = req.body;
@@ -30,7 +30,7 @@ const createUserTask = asyncHandler(async(req, res) => {
 }); 
 
 //@desc get a task with :id
-//@api GET /api/user/task/:id
+//@api GET /api/user/tasks/:id
 //@access private
 const getUserTask = asyncHandler(async(req, res) => {
     const task = await Task.findById(req.params.id);
@@ -51,7 +51,7 @@ const getUserTask = asyncHandler(async(req, res) => {
 }); 
 
 //@desc update task
-//@api PUT /api/user/task/:id
+//@api PUT /api/user/tasks/:id
 //@access private
 const updateUserTask = asyncHandler(async(req, res) => {
     const task = await Task.findById(req.params.id);
@@ -78,7 +78,7 @@ const updateUserTask = asyncHandler(async(req, res) => {
 }); 
 
 //@desc delete task
-//@api DELETE /api/user/task/:id
+//@api DELETE /api/user/tasks/:id
 //@access private
 const deleteUserTask = asyncHandler(async(req, res) => {
     const task = await Task.findById(req.params.id);

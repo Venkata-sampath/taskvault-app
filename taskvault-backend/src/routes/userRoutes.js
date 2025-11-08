@@ -5,7 +5,7 @@ const validateToken = require("../middleware/validateTokenHandler");
 
 router.use(validateToken);
 // Task Routes
-router.route("/task").get(getUserTasks).post(createUserTask);
-router.route("/task/:id").get(getUserTask).put(updateUserTask).delete(deleteUserTask);
+router.route("/tasks").get(getUserTasks).post(createUserTask);
+router.route("/tasks/:id").get(getUserTask).put(updateUserTask).delete(deleteUserTask);
 
 module.exports = router;
