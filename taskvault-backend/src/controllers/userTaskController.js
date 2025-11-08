@@ -4,7 +4,7 @@ const Task = require("../models/taskModel");
 //@desc Get all tasks
 //@api GET /api/user/task
 //@access private
-const getTasks = asyncHandler(async(req, res) => {
+const getUserTasks = asyncHandler(async(req, res) => {
     const tasks = await Task.find({userId: req.user.id});
     res.status(200).json(tasks);
 }); 
@@ -12,7 +12,7 @@ const getTasks = asyncHandler(async(req, res) => {
 //@desc create a task
 //@api POST /api/user/task
 //@access private
-const createTask = asyncHandler(async(req, res) => {
+const createUserTask = asyncHandler(async(req, res) => {
     const {title, description, status, priority, dueDate} = req.body;
     if(!title){
         res.status(400);
@@ -30,7 +30,7 @@ const createTask = asyncHandler(async(req, res) => {
 //@desc get a task with :id
 //@api GET /api/user/task/:id
 //@access private
-const getTask = asyncHandler(async(req, res) => {
+const getUserTask = asyncHandler(async(req, res) => {
     const task = await Task.findById(req.params.id);
     if(!task){
         res.status(404);
@@ -48,7 +48,7 @@ const getTask = asyncHandler(async(req, res) => {
 //@desc update task
 //@api PUT /api/user/task/:id
 //@access private
-const updateTask = asyncHandler(async(req, res) => {
+const updateUserTask = asyncHandler(async(req, res) => {
     const task = await Task.findById(req.params.id);
     if(!task){
         res.status(404);
@@ -71,7 +71,7 @@ const updateTask = asyncHandler(async(req, res) => {
 //@desc delete task
 //@api DELETE /api/user/task/:id
 //@access private
-const deleteTask = asyncHandler(async(req, res) => {
+const deleteUserTask = asyncHandler(async(req, res) => {
     const task = await Task.findById(req.params.id);
     if(!task){
         res.status(404);
@@ -87,4 +87,4 @@ const deleteTask = asyncHandler(async(req, res) => {
     res.status(200).json(`Task Deleted successfully`);
 }); 
 
-module.exports = {getTasks, createTask, getTask, updateTask, deleteTask};
+module.exports = {getUserTasks, createUserTask, getUserTask, updateUserTask, deleteUserTask};

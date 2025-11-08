@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const {getTasks, createTask, getTask, updateTask, deleteTask} = require("../controllers/userTaskController");
+const {getUserTasks, createUserTask, getUserTask, updateUserTask, deleteUserTask} = require("../controllers/userTaskController");
 const validateToken = require("../middleware/validateTokenHandler");
 
 router.use(validateToken);
-router.route("/").get(getTasks).post(createTask);
-router.route("/:id").get(getTask).put(updateTask).delete(deleteTask);
+router.route("/").get(getUserTasks).post(createUserTask);
+router.route("/:id").get(getUserTask).put(updateUserTask).delete(deleteUserTask);
 
 module.exports = router;
