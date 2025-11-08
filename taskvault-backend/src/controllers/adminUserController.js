@@ -10,7 +10,7 @@ const getAllUsers = asyncHandler( async(req, res) => {
     res.json(users);
 });
 
-//@desc get user 
+//@desc get user by id
 //@api GET /api/admin/users/:id
 //@access private
 //@role admin
@@ -24,7 +24,7 @@ const getUser = asyncHandler( async(req, res) => {
     res.json(user);
 });
 
-//@desc delete user 
+//@desc delete user by id
 //@api DELETE /api/admin/users/:id
 //@access private
 //@role admin
