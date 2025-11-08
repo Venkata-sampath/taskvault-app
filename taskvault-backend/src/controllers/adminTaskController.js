@@ -1,5 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const Task = require("../models/taskModel");
+const User = require("../models/userModel");
 
 //@desc get all user's tasks
 //@api GET /api/admin/task
@@ -21,6 +22,12 @@ const createAdminTask = asyncHandler( async(req, res) => {
     if(!userId || !title){
         res.status(400);
         throw new Error("All fields are mandatory");
+    }
+
+    const userAvaialable = await User.findById(userId);
+    if(!userAvaialable){
+        res.status(404);
+        throw new Error("User not found");
     }
 
     const task = await Task.create({
