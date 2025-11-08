@@ -13,7 +13,7 @@ app.use(express.json());
 app.use("/api/auth", require("./routes/authRoutes"));
 
 // User Routes
-
+app.use("/api/user/task", require("./routes/userTaskRoutes"));
 
 
 // Admin Routes
