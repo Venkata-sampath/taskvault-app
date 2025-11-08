@@ -1,0 +1,584 @@
+{
+	"info": {
+		"_postman_id": "79fddff4-a94f-43b8-9064-93eed46fc931",
+		"name": "taskvault-app api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49886355",
+		"_collection_link": "https://satyaramsl72-4205919.postman.co/workspace/Venkata-Sampath-Guthina's-Works~3cd73ff7-0ccb-44d5-81d2-33a0f52d9602/collection/49886355-79fddff4-a94f-43b8-9064-93eed46fc931?action=share&source=collection_link&creator=49886355"
+	},
+	"item": [
+		{
+			"name": "Auth Routes",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"user\",\r\n  \"email\": \"user@example.com\",\r\n  \"password\": \"123456\",\r\n  \"role\": \"user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7001/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"user@example.com\",\r\n  \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7001/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Current User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoidXNlciIsImVtYWlsIjoidXNlckBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWQiOiI2OTBmODI4OTk1NWI5NTI1MTZhNmY5YjMifSwiaWF0IjoxNzYyNjI0MzE2LCJleHAiOjE3NjI2Mjc5MTZ9.kORYIwShEyXM_PHzmYe0_SSjIH9guXArIfLCSMoaB1M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:7001/api/auth/current",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"auth",
+								"current"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Routes",
+			"item": [
+				{
+					"name": "Create Task (User)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoidXNlciIsImVtYWlsIjoidXNlckBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWQiOiI2OTBmODI4OTk1NWI5NTI1MTZhNmY5YjMifSwiaWF0IjoxNzYyNjI0MzE2LCJleHAiOjE3NjI2Mjc5MTZ9.kORYIwShEyXM_PHzmYe0_SSjIH9guXArIfLCSMoaB1M",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Test Task\",\r\n  \"description\": \"test task description\",\r\n  \"priority\": \"low\",\r\n  \"status\": \"in-progress\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:7001/api/user/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"user",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Tasks (User)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoidXNlciIsImVtYWlsIjoidXNlckBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWQiOiI2OTBmODI4OTk1NWI5NTI1MTZhNmY5YjMifSwiaWF0IjoxNzYyNjI0MzE2LCJleHAiOjE3NjI2Mjc5MTZ9.kORYIwShEyXM_PHzmYe0_SSjIH9guXArIfLCSMoaB1M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:7001/api/user/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"user",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Task by ID (User)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoidXNlciIsImVtYWlsIjoidXNlckBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWQiOiI2OTBmODI4OTk1NWI5NTI1MTZhNmY5YjMifSwiaWF0IjoxNzYyNjI0MzE2LCJleHAiOjE3NjI2Mjc5MTZ9.kORYIwShEyXM_PHzmYe0_SSjIH9guXArIfLCSMoaB1M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:7001/api/user/tasks/690f849c955b952516a6f9b7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"user",
+								"tasks",
+								"690f849c955b952516a6f9b7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Task by ID (User)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoidXNlciIsImVtYWlsIjoidXNlckBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWQiOiI2OTBmODI4OTk1NWI5NTI1MTZhNmY5YjMifSwiaWF0IjoxNzYyNjI0MzE2LCJleHAiOjE3NjI2Mjc5MTZ9.kORYIwShEyXM_PHzmYe0_SSjIH9guXArIfLCSMoaB1M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"status\": \"completed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7001/api/user/tasks/690f849c955b952516a6f9b7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"user",
+								"tasks",
+								"690f849c955b952516a6f9b7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Task by ID (User)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoidXNlciIsImVtYWlsIjoidXNlckBleGFtcGxlLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWQiOiI2OTBmODI4OTk1NWI5NTI1MTZhNmY5YjMifSwiaWF0IjoxNzYyNjI0MzE2LCJleHAiOjE3NjI2Mjc5MTZ9.kORYIwShEyXM_PHzmYe0_SSjIH9guXArIfLCSMoaB1M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:7001/api/user/tasks/690f849c955b952516a6f9b7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7001",
+							"path": [
+								"api",
+								"user",
+								"tasks",
+								"690f849c955b952516a6f9b7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin Routes",
+			"item": [
+				{
+					"name": "Admin Task Routes",
+					"item": [
+						{
+							"name": "Create Task (Admin)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWQiOiI2OTBmODZkYjk1NWI5NTI1MTZhNmY5YzUifSwiaWF0IjoxNzYyNjI1MjY4LCJleHAiOjE3NjI2Mjg4Njh9.nMCam3cnJOnQXgR0Bhz53SJ-N7ziDfTLlEyjzvImhbA",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"userId\": \"690f8289955b952516a6f9b3\",  \r\n  \"title\": \"Test Task by admin\", \r\n  \"description\": \"test task by admin description\",\r\n  \"priority\": \"high\",\r\n  \"status\": \"pending\"\r\n  \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:7001/api/admin/tasks",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7001",
+									"path": [
+										"api",
+										"admin",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Tasks (Admin)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWQiOiI2OTBmODZkYjk1NWI5NTI1MTZhNmY5YzUifSwiaWF0IjoxNzYyNjI1MjY4LCJleHAiOjE3NjI2Mjg4Njh9.nMCam3cnJOnQXgR0Bhz53SJ-N7ziDfTLlEyjzvImhbA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:7001/api/admin/tasks",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7001",
+									"path": [
+										"api",
+										"admin",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Task by ID (Admin)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWQiOiI2OTBmODZkYjk1NWI5NTI1MTZhNmY5YzUifSwiaWF0IjoxNzYyNjI1MjY4LCJleHAiOjE3NjI2Mjg4Njh9.nMCam3cnJOnQXgR0Bhz53SJ-N7ziDfTLlEyjzvImhbA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:7001/api/admin/tasks/690f170607af94a191fda0f5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7001",
+									"path": [
+										"api",
+										"admin",
+										"tasks",
+										"690f170607af94a191fda0f5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Task by ID (Admin)",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWQiOiI2OTBmODZkYjk1NWI5NTI1MTZhNmY5YzUifSwiaWF0IjoxNzYyNjI1MjY4LCJleHAiOjE3NjI2Mjg4Njh9.nMCam3cnJOnQXgR0Bhz53SJ-N7ziDfTLlEyjzvImhbA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": \"completed\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:7001/api/admin/tasks/690f170607af94a191fda0f5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7001",
+									"path": [
+										"api",
+										"admin",
+										"tasks",
+										"690f170607af94a191fda0f5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Task by ID (Admin)",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWQiOiI2OTBmODZkYjk1NWI5NTI1MTZhNmY5YzUifSwiaWF0IjoxNzYyNjI1MjY4LCJleHAiOjE3NjI2Mjg4Njh9.nMCam3cnJOnQXgR0Bhz53SJ-N7ziDfTLlEyjzvImhbA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:7001/api/admin/tasks/690f170607af94a191fda0f5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7001",
+									"path": [
+										"api",
+										"admin",
+										"tasks",
+										"690f170607af94a191fda0f5"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Admin User Routes",
+					"item": [
+						{
+							"name": "Get all Users (Admin)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWQiOiI2OTBmODZkYjk1NWI5NTI1MTZhNmY5YzUifSwiaWF0IjoxNzYyNjI1MjY4LCJleHAiOjE3NjI2Mjg4Njh9.nMCam3cnJOnQXgR0Bhz53SJ-N7ziDfTLlEyjzvImhbA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:7001/api/admin/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7001",
+									"path": [
+										"api",
+										"admin",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User by ID (Admin)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWQiOiI2OTBmODZkYjk1NWI5NTI1MTZhNmY5YzUifSwiaWF0IjoxNzYyNjI1MjY4LCJleHAiOjE3NjI2Mjg4Njh9.nMCam3cnJOnQXgR0Bhz53SJ-N7ziDfTLlEyjzvImhbA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:7001/api/admin/users/690dd4c3eb121e00f05f232f",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7001",
+									"path": [
+										"api",
+										"admin",
+										"users",
+										"690dd4c3eb121e00f05f232f"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User by ID (Admin)",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiYWRtaW4iLCJlbWFpbCI6ImFkbWluQGV4YW1wbGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWQiOiI2OTBmODZkYjk1NWI5NTI1MTZhNmY5YzUifSwiaWF0IjoxNzYyNjI1MjY4LCJleHAiOjE3NjI2Mjg4Njh9.nMCam3cnJOnQXgR0Bhz53SJ-N7ziDfTLlEyjzvImhbA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:7001/api/admin/users/690f8289955b952516a6f9b3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "7001",
+									"path": [
+										"api",
+										"admin",
+										"users",
+										"690f8289955b952516a6f9b3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
